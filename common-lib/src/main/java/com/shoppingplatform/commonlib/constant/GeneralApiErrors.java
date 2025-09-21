@@ -12,4 +12,5 @@ public final class GeneralApiErrors {
     private static final int CODE = 0;
 
     public static final ApiError UNKNOWN_ERROR = new ApiError(HttpStatus.INTERNAL_SERVER_ERROR, "Unknown error", CODE + 1);
+    public static final ApiError BAD_REQUEST = new ApiError(HttpStatus.BAD_REQUEST, "Bad request", CODE + 2);
 }
