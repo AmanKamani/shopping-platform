@@ -1,5 +1,6 @@
 package com.example.userservice.service.impl;
 
+import com.example.userservice.constant.ApplicationErrorCodes;
 import com.example.userservice.dto.request.PatchUserRequest;
 import com.example.userservice.dto.response.UserResponse;
 import com.example.userservice.entity.AppUser;
@@ -7,6 +8,7 @@ import com.example.userservice.enums.UserStatus;
 import com.example.userservice.mapper.UserMapper;
 import com.example.userservice.repository.AppUserRepository;
 import com.example.userservice.service.AdminService;
+import com.shoppingplatform.commonlib.exception.BaseException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -37,7 +39,7 @@ public class AdminServiceImpl implements AdminService {
 
     private AppUser findByIdOrThrow(String id) {
         return repository.findById(UUID.fromString(id))
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new BaseException(ApplicationErrorCodes.USER_NOT_FOUND));
     }
 
     @Override

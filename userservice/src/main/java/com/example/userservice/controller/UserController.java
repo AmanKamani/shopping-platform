@@ -20,8 +20,8 @@ public class UserController {
 
 
     @GetMapping("/v1/me")
-    public ResponseEntity<UserResponse> getProfile() {
-        return ResponseEntity.of(userService.findById(extractUserId()));
+    public UserResponse getProfile() {
+        return userService.findById(extractUserId());
     }
 
     @PutMapping("/v1/me")
@@ -31,7 +31,7 @@ public class UserController {
 
     @PatchMapping("/v1/password")
     public void updatePassword(@Validated(PatchUserRequest.PatchPasswordValidation.class) @RequestBody PatchUserRequest request) {
-        userService.updatePassword(extractUserId(), request.getPassword());
+        userService.updatePassword(extractUserId(), request.getOldPassword(), request.getPassword());
     }
 
     private String extractUserId() {

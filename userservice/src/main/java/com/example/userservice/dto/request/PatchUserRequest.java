@@ -21,6 +21,10 @@ public class PatchUserRequest {
     @Size(min = 8, max = 20, groups = PatchPasswordValidation.class)
     private String password;
 
+    @NotBlank(groups = PatchPasswordValidation.class)
+    @Size(min = 8, max = 20, groups = PatchPasswordValidation.class)
+    private String oldPassword;
+
 
     public enum PatchType {
         ADD,

@@ -8,11 +8,11 @@ import java.util.Optional;
 
 public interface UserService {
 
-    Optional<UserResponse> findById(String id);
+    UserResponse findById(String id);
 
     UserResponse updateById(String id, UpdateRequest request);
 
     void deleteById(String id);
 
-    void updatePassword(String id, String newPassword);
+    void updatePassword(String id, String oldPassword, String newPassword);
 }
