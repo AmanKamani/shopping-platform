@@ -29,7 +29,7 @@ public class AppUser {
     @Column(nullable = false)
     private String password;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
@@ -38,7 +38,7 @@ public class AppUser {
     private UserStatus status;
 
     @Column
-    private Long phoneNumber;
+    private String phoneNumber;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
